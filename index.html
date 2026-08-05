@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clases de Guitarra Online | Entendé lo que Tocás — Joaquín</title>
+<meta name="description" content="Clases de guitarra individuales, online y presenciales con Joaquín. Un método basado en el oído para entender armonía, melodía y ritmo — y tocar blues, rock, funk y jazz con libertad real.">
+<link rel="canonical" href="https://tudominio.github.io/">
+<meta property="og:title" content="Entendé lo que tocás — Clases de guitarra con Joaquín">
+<meta property="og:description" content="Dejá de memorizar dibujos en el mástil. Empezá a escuchar, entender y tocar la música que amás.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/joaquin-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231B140F'/%3E%3Cpath d='M18 44 C22 30 26 18 34 12 C40 8 46 10 46 16 C46 22 40 24 36 30 C31 37 30 44 24 48 C20 50 16 48 18 44 Z' fill='none' stroke='%23C89B4A' stroke-width='2.4'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-primary:#1B140F;
+    --bg-secondary:#241A13;
+    --bg-elevated:#2E2116;
+    --bg-elevated-hi:#382819;
+    --text-primary:#F2E9DC;
+    --text-muted:#B6A491;
+    --text-faint:#8A7864;
+    --accent-brass:#C89B4A;
+    --accent-brass-hi:#E0B664;
+    --accent-rust:#A8472D;
+    --accent-whatsapp:#3EAF6E;
+    --accent-whatsapp-hi:#4FC783;
+    --line:#3D2E20;
+    --radius-sm:6px;
+    --radius-md:14px;
+    --font-display:'Fraunces', serif;
+    --font-body:'Manrope', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+    --max-w: 780px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg-primary);
+    color:var(--text-primary);
+    font-family:var(--font-body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{max-width:100%;display:block;}
+  a{color:inherit;}
+
+  h1,h2,h3{
+    font-family:var(--font-display);
+    font-weight:500;
+    line-height:1.12;
+    margin:0 0 0.5em 0;
+    letter-spacing:-0.01em;
+  }
+  h1{font-size:clamp(2.6rem, 6vw, 4.6rem); font-weight:500;}
+  h2{font-size:clamp(1.9rem, 4vw, 2.9rem);}
+  h3{font-size:clamp(1.2rem, 2.2vw, 1.5rem); font-weight:600;}
+  p{margin:0 0 1em 0; color:var(--text-muted);}
+  em{color:var(--accent-brass-hi); font-style:italic;}
+  strong{color:var(--text-primary); font-weight:700;}
+
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent-brass);
+    display:inline-flex;
+    align-items:center;
+    gap:0.6em;
+    margin-bottom:1.4em;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background:var(--accent-brass);
+    display:inline-block;
+  }
+
+  .wrap{
+    max-width:var(--max-w);
+    margin:0 auto;
+    padding:0 24px;
+  }
+  .wrap-wide{
+    max-width:1040px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  section{
+    padding:100px 0;
+    position:relative;
+  }
+  @media (max-width: 640px){
+    section{padding:64px 0;}
+  }
+
+  .bg-a{background:var(--bg-primary);}
+  .bg-b{background:var(--bg-secondary);}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0;
+    z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 24px;
+    background:linear-gradient(to bottom, rgba(27,20,15,0.92), rgba(27,20,15,0));
+    backdrop-filter:blur(2px);
+  }
+  .brand{
+    font-family:var(--font-display);
+    font-size:1.05rem;
+    letter-spacing:0.01em;
+    color:var(--text-primary);
+    text-decoration:none;
+    font-style:italic;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.55em;
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:0.95rem;
+    padding:13px 24px;
+    border-radius:999px;
+    text-decoration:none;
+    border:1px solid transparent;
+    transition:transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .btn:focus-visible{outline:2px solid var(--accent-brass-hi); outline-offset:3px;}
+  .btn-whatsapp{
+    background:var(--accent-whatsapp);
+    color:#0D1F16;
+  }
+  .btn-whatsapp:hover{background:var(--accent-whatsapp-hi); transform:translateY(-1px);}
+  .btn-whatsapp svg{width:18px; height:18px; flex-shrink:0;}
+  .btn-ghost{
+    background:transparent;
+    border-color:var(--line);
+    color:var(--text-primary);
+    font-size:0.85rem;
+    padding:10px 18px;
+  }
+  .btn-ghost:hover{border-color:var(--accent-brass);}
+  .header-cta{display:none;}
+  @media (min-width:720px){ .header-cta{display:inline-flex;} }
+
+  /* ---------- FLOATING CTA ---------- */
+  .floating-cta{
+    position:fixed;
+    bottom:20px; right:20px;
+    z-index:60;
+    opacity:0; transform:translateY(16px);
+    pointer-events:none;
+    transition:opacity 0.35s ease, transform 0.35s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,0.45);
+  }
+  .floating-cta.show{opacity:1; transform:translateY(0); pointer-events:auto;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh;
+    display:flex; flex-direction:column; justify-content:center;
+    padding-top:120px;
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 900px 500px at 15% 0%, rgba(200,155,74,0.10), transparent 60%),
+      var(--bg-primary);
+  }
+  .hero-wave{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    opacity:0.55;
+    pointer-events:none;
+  }
+  .hero-wave path{
+    fill:none;
+    stroke:var(--accent-brass);
+    stroke-width:1.4;
+    stroke-linecap:round;
+    opacity:0.5;
+  }
+  .hero-wave .draw{
+    stroke-dasharray:2400;
+    stroke-dashoffset:2400;
+    animation:draw 2.6s ease-out forwards 0.2s;
+  }
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+
+  .hero-inner{position:relative; z-index:2;}
+  .hero h1{max-width:11ch;}
+  .hero h1 em{font-style:italic; color:var(--accent-brass-hi);}
+  .hero-sub{
+    font-size:clamp(1.05rem, 1.6vw, 1.25rem);
+    max-width:52ch;
+    color:var(--text-muted);
+    margin-bottom:2.2em;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr;
+    gap:clamp(28px, 5vw, 64px);
+    align-items:center;
+  }
+  @media (max-width:820px){
+    .hero-grid{grid-template-columns:1fr; text-align:left;}
+  }
+  .hero-photo-wrap{
+    position:relative;
+    justify-self:center;
+    width:100%;
+    max-width:360px;
+  }
+  .hero-photo-frame{
+    position:relative;
+    aspect-ratio:4/5;
+    border-radius:var(--radius-md);
+    overflow:hidden;
+    border:1px solid var(--line);
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.6);
+  }
+  .hero-photo-frame img{
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:50% 22%;
+    filter:saturate(0.86) contrast(1.05) brightness(0.98);
+  }
+  .hero-photo-frame::after{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      linear-gradient(180deg, rgba(27,20,15,0) 55%, rgba(27,20,15,0.55) 100%),
+      linear-gradient(20deg, rgba(200,155,74,0.16), transparent 55%);
+    pointer-events:none;
+  }
+  .hero-photo-tag{
+    position:absolute;
+    bottom:-14px; left:-14px;
+    background:var(--accent-brass);
+    color:#1B140F;
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.05em;
+    padding:8px 14px;
+    border-radius:8px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.35);
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap; align-items:center;}
+  .hero-scroll{
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    color:var(--text-faint);
+    text-decoration:none;
+    display:inline-flex; align-items:center; gap:0.5em;
+  }
+
+  .media-placeholder{
+    border-radius:var(--radius-md);
+    background:
+      repeating-linear-gradient(135deg, var(--bg-elevated), var(--bg-elevated) 10px, var(--bg-elevated-hi) 10px, var(--bg-elevated-hi) 20px);
+    border:1px dashed var(--line);
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    color:var(--text-faint);
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    letter-spacing:0.03em;
+    padding:20px;
+  }
+
+  /* ---------- DIVIDERS (grid -> wave evolution) ---------- */
+  .divider{ line-height:0; margin-top:-1px; }
+  .divider svg{ width:100%; height:auto; display:block; }
+  .divider path, .divider line{ stroke:var(--line); }
+
+  /* ---------- PROBLEMA ---------- */
+  .symptom-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:14px;
+    margin-top:2.4em;
+  }
+  @media (max-width:640px){ .symptom-grid{grid-template-columns:1fr;} }
+  .symptom-card{
+    background:var(--bg-elevated);
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    padding:20px 22px;
+    font-size:0.98rem;
+    color:var(--text-primary);
+  }
+  .lede{
+    font-family:var(--font-display);
+    font-size:clamp(1.3rem, 2.4vw, 1.7rem);
+    font-style:italic;
+    color:var(--text-primary);
+    max-width:26ch;
+    margin:1.2em 0 0.4em;
+  }
+
+  /* ---------- GRAN IDEA ---------- */
+  .idea-panel{
+    background:var(--bg-elevated);
+    border-left:3px solid var(--accent-brass);
+    border-radius:0 var(--radius-md) var(--radius-md) 0;
+    padding:44px clamp(24px, 5vw, 56px);
+  }
+  .idea-panel p{ font-size:1.08rem; }
+  .idea-close{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:1.4rem;
+    color:var(--accent-brass-hi);
+    margin-top:1em;
+  }
+
+  /* ---------- MÉTODO (flujo) ---------- */
+  .flow{
+    display:flex; flex-direction:column;
+    align-items:center;
+    margin:3em auto 0;
+    max-width:520px;
+  }
+  .flow-step{
+    width:100%;
+    background:var(--bg-elevated);
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    padding:20px 26px;
+    text-align:center;
+    position:relative;
+  }
+  .flow-step.final{
+    background:linear-gradient(135deg, var(--accent-rust), var(--accent-brass));
+    border:none;
+  }
+  .flow-step.final h3{ color:#1B140F; }
+  .flow-step .tag{
+    font-family:var(--font-mono);
+    font-size:0.7rem;
+    letter-spacing:0.1em;
+    color:var(--accent-brass);
+    text-transform:uppercase;
+    display:block;
+    margin-bottom:0.4em;
+  }
+  .flow-step.final .tag{ color:rgba(27,20,15,0.65); }
+  .flow-step p{ margin:0.4em 0 0; font-size:0.92rem; }
+  .flow-step.final p{ color:rgba(27,20,15,0.75); }
+  .flow-connector{
+    width:1px;
+    height:34px;
+    background:linear-gradient(var(--accent-brass), transparent);
+    margin:2px 0;
+  }
+
+  /* ---------- ANTES / DESPUÉS ---------- */
+  .shift-grid{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    gap:clamp(16px, 4vw, 40px);
+    align-items:center;
+    margin-top:2.4em;
+  }
+  @media (max-width:720px){
+    .shift-grid{ grid-template-columns:1fr; }
+    .shift-arrow{ transform:rotate(90deg); margin:6px auto; }
+  }
+  .shift-col{
+    border-radius:var(--radius-md);
+    padding:28px 26px;
+    border:1px solid var(--line);
+  }
+  .shift-before{ background:var(--bg-secondary); }
+  .shift-after{ background:linear-gradient(160deg, var(--bg-elevated-hi), var(--bg-elevated)); border-color:var(--accent-brass); }
+  .shift-label{
+    font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase;
+    display:block; margin-bottom:1em;
+  }
+  .shift-before .shift-label{ color:var(--text-faint); }
+  .shift-after .shift-label{ color:var(--accent-brass-hi); }
+  .shift-col ul{ list-style:none; margin:0; padding:0; }
+  .shift-col li{ padding:8px 0; border-bottom:1px solid var(--line); color:var(--text-muted); font-size:0.95rem; }
+  .shift-after li{ color:var(--text-primary); }
+  .shift-col li:last-child{ border-bottom:none; }
+  .shift-arrow{ color:var(--accent-brass); width:28px; height:28px; }
+
+  /* ---------- RESULTADOS ---------- */
+  .results-list{
+    list-style:none;
+    margin:2.2em 0 0;
+    padding:0;
+    display:grid;
+    gap:12px;
+  }
+  .results-list li{
+    display:flex; gap:14px; align-items:flex-start;
+    background:var(--bg-secondary);
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    padding:16px 20px;
+    font-size:1rem;
+    color:var(--text-primary);
+  }
+  .results-list svg{ flex-shrink:0; margin-top:3px; width:20px; height:20px; color:var(--accent-whatsapp); }
+
+  /* ---------- CLASES ---------- */
+  .feature-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:16px;
+    margin-top:2.4em;
+  }
+  @media (max-width:900px){ .feature-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .feature-grid{grid-template-columns:1fr;} }
+  .feature-card{
+    background:var(--bg-elevated);
+    border-radius:var(--radius-sm);
+    padding:24px 20px;
+    text-align:left;
+  }
+  .feature-card .icon{ color:var(--accent-brass); margin-bottom:14px; width:26px; height:26px; }
+  .feature-card h3{ font-size:1.02rem; margin-bottom:0.3em; }
+  .feature-card p{ font-size:0.9rem; margin:0; }
+
+  /* ---------- PREMIUM ---------- */
+  .premium-panel{
+    background:
+      linear-gradient(160deg, var(--bg-elevated-hi) 0%, var(--bg-secondary) 100%);
+    border:1px solid var(--line);
+    border-radius:var(--radius-md);
+    padding:clamp(32px, 6vw, 56px);
+    position:relative;
+    overflow:hidden;
+  }
+  .badge{
+    display:inline-block;
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--bg-primary);
+    background:var(--accent-brass);
+    padding:5px 12px;
+    border-radius:999px;
+    margin-bottom:1.4em;
+  }
+  .block-cards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin:1.8em 0;
+  }
+  @media (max-width:640px){ .block-cards{grid-template-columns:1fr;} }
+  .block-card{
+    background:rgba(27,20,15,0.4);
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    padding:20px;
+  }
+  .block-card .tag{
+    font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.08em;
+    color:var(--accent-brass-hi); text-transform:uppercase; display:block; margin-bottom:0.5em;
+  }
+  .block-card p{ font-size:0.92rem; margin:0; }
+
+  /* ---------- SOBRE MÍ ---------- */
+  .about-layout{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:44px;
+    align-items:start;
+  }
+  @media (max-width:640px){ .about-layout{grid-template-columns:1fr;} }
+  .about-photo{ aspect-ratio:4/5; border-radius:var(--radius-md); }
+
+  /* ---------- TESTIMONIOS ---------- */
+  .testi-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:16px;
+    margin-top:2.4em;
+  }
+  .testi-card{
+    background:var(--bg-elevated);
+    border-radius:var(--radius-sm);
+    overflow:hidden;
+    border:1px solid var(--line);
+    border-top:2px solid var(--accent-brass);
+  }
+  .stars{
+    display:block;
+    color:var(--accent-brass);
+    letter-spacing:0.15em;
+    font-size:0.9rem;
+    margin-bottom:0.7em;
+  }
+  .testi-body{ padding:22px 22px 20px; }
+  .testi-body p{ font-size:0.94rem; margin-bottom:0.9em; color:var(--text-primary); font-family:var(--font-display); font-style:italic; line-height:1.5; }
+  .testi-name{ font-family:var(--font-mono); font-size:0.75rem; color:var(--text-faint); }
+
+  /* ---------- FAQ ---------- */
+  .faq-item{
+    border-bottom:1px solid var(--line);
+  }
+  .faq-item:first-child{ border-top:1px solid var(--line); }
+  .faq-item summary{
+    cursor:pointer;
+    padding:22px 4px;
+    font-family:var(--font-display);
+    font-size:1.08rem;
+    color:var(--text-primary);
+    display:flex; justify-content:space-between; align-items:center; gap:20px;
+    list-style:none;
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{
+    content:"+";
+    font-family:var(--font-body);
+    font-size:1.4rem;
+    color:var(--accent-brass);
+    flex-shrink:0;
+    transition:transform 0.2s ease;
+  }
+  .faq-item[open] summary::after{ transform:rotate(45deg); }
+  .faq-item .faq-a{ padding:0 4px 22px; margin:0; max-width:64ch; }
+
+  /* ---------- CTA FINAL ---------- */
+  .final-cta{
+    text-align:center;
+    background:
+      radial-gradient(ellipse 700px 400px at 50% 0%, rgba(200,155,74,0.14), transparent 65%),
+      var(--bg-secondary);
+  }
+  .final-cta h2{ max-width:20ch; margin-left:auto; margin-right:auto; }
+  .final-cta p{ max-width:52ch; margin-left:auto; margin-right:auto; font-size:1.05rem; }
+  .final-cta .hero-ctas{ justify-content:center; margin-top:1.6em; }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:40px 24px 50px;
+    text-align:center;
+    color:var(--text-faint);
+    font-size:0.85rem;
+  }
+  footer a{ color:var(--accent-brass); text-decoration:none; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =========================================================
+  PROYECTO: Landing "Entendé lo que tocás" — v1.1
+  - Número de WhatsApp ya cargado: 5491150511232
+  - Foto real en /assets/joaquin-hero.jpg
+  - Testimonios reales cargados (Alejandro, Brian Oropeza, Diego, Francisco, Cecilia)
+  - Para cambiar el número de WhatsApp: buscar "5491150511232" y reemplazar en
+    todos los enlaces wa.me (son 5 en total).
+  - Para cambiar la foto: reemplazar el archivo assets/joaquin-hero.jpg por otro
+    del mismo nombre, o cambiar la ruta en el <img src="..."> del Hero y de Sobre mí.
+========================================================== -->
+
+<header>
+  <a href="#top" class="brand">Entendé lo que tocás</a>
+  <a href="https://wa.me/5491150511232?text=Hola!%20Quiero%20contarte%20qu%C3%A9%20me%20gustar%C3%ADa%20lograr%20con%20la%20guitarra"
+     class="btn btn-whatsapp header-cta" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.15c-.24.68-1.4 1.3-1.93 1.38-.49.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.62-.59-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.08.99-2.36.26-.28.57-.35.76-.35s.38 0 .55.01c.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.3-.28.46-.14.16-.29.36-.42.48-.14.13-.28.28-.12.55.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.28.37-.23.62-.14.26.09 1.62.77 1.9.91.28.14.46.21.53.32.07.12.07.68-.17 1.36z"/></svg>
+    Escribime
+  </a>
+</header>
+
+<a href="https://wa.me/5491150511232?text=Hola!%20Quiero%20contarte%20qu%C3%A9%20me%20gustar%C3%ADa%20lograr%20con%20la%20guitarra"
+   class="btn btn-whatsapp floating-cta" id="floatingCta" target="_blank" rel="noopener" aria-label="Escribime por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.15c-.24.68-1.4 1.3-1.93 1.38-.49.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.62-.59-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.08.99-2.36.26-.28.57-.35.76-.35s.38 0 .55.01c.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.3-.28.46-.14.16-.29.36-.42.48-.14.13-.28.28-.12.55.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.28.37-.23.62-.14.26.09 1.62.77 1.9.91.28.14.46.21.53.32.07.12.07.68-.17 1.36z"/></svg>
+  Escribime
+</a>
+
+<main id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero bg-a">
+    <svg class="hero-wave" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path class="draw" d="M-50,560 C120,520 180,610 320,560 C460,510 520,600 660,560 C800,520 860,600 1000,560 C1100,535 1150,555 1260,540"/>
+      <path class="draw" style="animation-delay:0.5s; opacity:0.28;" d="M-50,610 C140,650 220,580 360,610 C500,640 560,570 700,610 C840,650 900,580 1040,610 C1130,630 1180,610 1260,620"/>
+    </svg>
+    <div class="wrap-wide hero-inner">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Clases de guitarra · Método por oído</span>
+          <h1>Entendé lo que <em>tocás.</em></h1>
+          <p class="hero-sub">Dejá de memorizar dibujos en el mástil. Empezá a escuchar, entender y tocar la música que realmente te gusta — blues, rock, funk, jazz o fusion — con un método que conecta tu oído con tus manos.</p>
+          <div class="hero-ctas">
+            <a href="https://wa.me/5491150511232?text=Hola!%20Quiero%20contarte%20qu%C3%A9%20me%20gustar%C3%ADa%20lograr%20con%20la%20guitarra"
+               class="btn btn-whatsapp" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.15c-.24.68-1.4 1.3-1.93 1.38-.49.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.62-.59-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.08.99-2.36.26-.28.57-.35.76-.35s.38 0 .55.01c.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.3-.28.46-.14.16-.29.36-.42.48-.14.13-.28.28-.12.55.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.28.37-.23.62-.14.26.09 1.62.77 1.9.91.28.14.46.21.53.32.07.12.07.68-.17 1.36z"/></svg>
+              Escribime por WhatsApp
+            </a>
+            <a href="#metodo" class="hero-scroll">Ver cómo funciona el método ↓</a>
+          </div>
+        </div>
+        <div class="hero-photo-wrap">
+          <div class="hero-photo-frame">
+            <img src="assets/joaquin-hero.jpg" alt="Joaquín, profesor de guitarra, en su estudio con una guitarra Telecaster" width="451" height="395" loading="eager">
+          </div>
+          <span class="hero-photo-tag">Joaquín — profesor</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider bg-a" style="background:var(--bg-primary)">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+      <line x1="0" y1="10" x2="1200" y2="10" stroke-width="1"/>
+      <line x1="0" y1="30" x2="1200" y2="30" stroke-width="1"/>
+      <line x1="0" y1="50" x2="1200" y2="50" stroke-width="1"/>
+      <line x1="120" y1="0" x2="120" y2="60" stroke-width="1"/>
+      <line x1="360" y1="0" x2="360" y2="60" stroke-width="1"/>
+      <line x1="600" y1="0" x2="600" y2="60" stroke-width="1"/>
+      <line x1="840" y1="0" x2="840" y2="60" stroke-width="1"/>
+      <line x1="1080" y1="0" x2="1080" y2="60" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <!-- ===================== PROBLEMA ===================== -->
+  <section class="bg-b">
+    <div class="wrap">
+      <span class="eyebrow">El problema</span>
+      <h2>¿Te suena familiar?</h2>
+      <p style="max-width:56ch; font-size:1.05rem;">Aprendiste escalas. Memorizaste acordes. Practicaste posiciones durante meses. Pero cuando te sentás a improvisar, hacés siempre las mismas frases. Cuando cambia el tono, te perdés. No es que no practiques: es que aprendiste <strong>dibujos</strong>, no <strong>música</strong>.</p>
+
+      <div class="symptom-grid">
+        <div class="symptom-card">Improvisás siempre igual, como en piloto automático.</div>
+        <div class="symptom-card">Te perdés apenas cambia la tonalidad.</div>
+        <div class="symptom-card">No entendés por qué un acorde "funciona" ahí y no en otro lado.</div>
+        <div class="symptom-card">Sentís que avanzás muy lento, a pesar de practicar seguido.</div>
+        <div class="symptom-card">Podés tocar covers, pero no crear algo propio.</div>
+        <div class="symptom-card">Escuchás a tu guitarrista favorito y sentís esa libertad lejos.</div>
+      </div>
+
+      <p class="lede">El problema no sos vos. Es cómo te enseñaron a aprender guitarra.</p>
+    </div>
+  </section>
+
+  <div class="divider" style="background:var(--bg-secondary)">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,30 L100,15 L200,30 L300,20 L400,30 L500,10 L600,30 L700,22 L800,30 L900,14 L1000,30 L1100,20 L1200,30" fill="none" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <!-- ===================== GRAN IDEA ===================== -->
+  <section class="bg-a" id="gran-idea">
+    <div class="wrap">
+      <span class="eyebrow">La idea central</span>
+      <h2>Las posiciones no son el problema.<br>Depender solo de ellas, sí.</h2>
+      <div class="idea-panel">
+        <p>Las posiciones son un mapa. Sirven para ubicarte. Pero un mapa no te enseña a viajar — solo te muestra caminos posibles.</p>
+        <p>El problema aparece cuando dependés exclusivamente del mapa y dejás de escuchar hacia dónde vas.</p>
+        <p>Mi método hace lo contrario a lo que estás acostumbrado: en vez de darte más dibujos para memorizar, entrena tu oído para que empiece a guiar tus manos.</p>
+        <p class="idea-close">Cuando el oído guía, no hace falta memorizar nada. Simplemente sabés qué tocar.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" style="background:var(--bg-primary)">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,30 C100,10 200,50 300,30 C400,10 500,50 600,30 C700,10 800,50 900,30 C1000,10 1100,50 1200,30" fill="none" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <!-- ===================== MÉTODO ===================== -->
+  <section class="bg-b" id="metodo">
+    <div class="wrap">
+      <span class="eyebrow">Cómo funciona</span>
+      <h2>Un mismo método.<br>Todo conectado.</h2>
+      <p style="max-width:52ch;">No separo la música en materias sueltas. Todo lo que tocás — un blues, un tema de funk, una improvisación de rock — nace del mismo lugar.</p>
+
+      <div class="flow">
+        <div class="flow-step"><span class="tag">Punto de partida</span><h3>Estilos que amás</h3><p>Blues, rock, funk, jazz, fusion.</p></div>
+        <div class="flow-connector"></div>
+        <div class="flow-step"><span class="tag">01</span><h3>Armonía</h3><p>Entender los acordes.</p></div>
+        <div class="flow-connector"></div>
+        <div class="flow-step"><span class="tag">02</span><h3>Melodía</h3><p>Crear frases con sentido.</p></div>
+        <div class="flow-connector"></div>
+        <div class="flow-step"><span class="tag">03</span><h3>Ritmo</h3><p>Que todo respire y groovee.</p></div>
+        <div class="flow-connector"></div>
+        <div class="flow-step"><span class="tag">El motor</span><h3>Oído</h3><p>La base de todo el método.</p></div>
+        <div class="flow-connector"></div>
+        <div class="flow-step final"><span class="tag">Resultado</span><h3>Libertad para tocar</h3></div>
+      </div>
+
+      <p style="text-align:center; max-width:48ch; margin:2.2em auto 0;">No aprendés recursos sueltos. Aprendés cuándo, cómo y por qué usarlos — en la música que realmente querés tocar.</p>
+    </div>
+  </section>
+
+  <div class="divider" style="background:var(--bg-secondary)">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,30 C150,0 150,60 300,30 C450,0 450,60 600,30 C750,0 750,60 900,30 C1050,0 1050,60 1200,30" fill="none" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <!-- ===================== ANTES / DESPUÉS ===================== -->
+  <section class="bg-b">
+    <div class="wrap">
+      <span class="eyebrow">El cambio real</span>
+      <h2>Lo que cambia cuando entendés lo que tocás</h2>
+      <div class="shift-grid">
+        <div class="shift-col shift-before">
+          <span class="shift-label">Antes</span>
+          <ul>
+            <li>Memorizás posiciones.</li>
+            <li>Dependés de diagramas.</li>
+            <li>Improvisás siempre igual.</li>
+            <li>Aprender canciones te lleva demasiado tiempo.</li>
+          </ul>
+        </div>
+        <svg class="shift-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <div class="shift-col shift-after">
+          <span class="shift-label">Después</span>
+          <ul>
+            <li>Entendés lo que tocás.</li>
+            <li>Comprendés cómo funciona la música.</li>
+            <li>Improvisás con intención.</li>
+            <li>Aprendés canciones más rápido.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RESULTADOS ===================== -->
+  <section class="bg-a">
+    <div class="wrap">
+      <span class="eyebrow">Resultados</span>
+      <h2>Esto es lo que vas a poder hacer</h2>
+      <ul class="results-list">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Improvisar con confianza real, no en piloto automático.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Entender por qué un acorde funciona y elegir el siguiente con criterio.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Mover cualquier idea a cualquier tonalidad, sin quedarte trabado.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Sacar canciones de oído con mucha más facilidad.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Crear tus propias frases, en vez de repetir las de siempre.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg> Acercarte, de verdad, al sonido de los guitarristas que te inspiraron.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== CLASES ===================== -->
+  <section class="bg-b">
+    <div class="wrap-wide">
+      <span class="eyebrow">Cómo son las clases</span>
+      <h2>Clases hechas a tu medida</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+          <h3>Individuales</h3>
+          <p>No competís por atención en un grupo. Toda la clase es sobre vos.</p>
+        </div>
+        <div class="feature-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+          <h3>Online o presenciales</h3>
+          <p>Como te resulte más cómodo, sin perder personalización.</p>
+        </div>
+        <div class="feature-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M5 8l7-5 7 5M5 8v9l7 5 7-5V8"/></svg>
+          <h3>Personalizadas</h3>
+          <p>A tu nivel, tus gustos musicales y tus objetivos reales.</p>
+        </div>
+        <div class="feature-card">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+          <h3>Con seguimiento</h3>
+          <p>Ejercicios pensados para vos y feedback real sobre tu progreso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PREMIUM ===================== -->
+  <section class="bg-a">
+    <div class="wrap">
+      <div class="premium-panel">
+        <span class="badge">Próximamente</span>
+        <h2 style="max-width:20ch;">Una biblioteca completa para entender lo que tocás, a tu ritmo</h2>
+        <p style="max-width:52ch;">Estoy preparando un programa premium de clases grabadas, organizado en dos grandes bloques — dos caras de un mismo método.</p>
+        <div class="block-cards">
+          <div class="block-card">
+            <span class="tag">Bloque 1</span>
+            <h3>Aplicación musical</h3>
+            <p>Cómo suenan el blues, el jazz, el funk y el rock cuando entendés lo que estás haciendo.</p>
+          </div>
+          <div class="block-card">
+            <span class="tag">Bloque 2</span>
+            <h3>Fundamentos</h3>
+            <p>Armonía, melodía, ritmo y oído: el porqué detrás de cada sonido.</p>
+          </div>
+        </div>
+        <a href="https://wa.me/5491150511232?text=Hola!%20Quiero%20que%20me%20avises%20cuando%20est%C3%A9%20disponible%20el%20programa%20premium"
+           class="btn btn-ghost" target="_blank" rel="noopener">Avisame cuando esté disponible →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOBRE MÍ ===================== -->
+  <section class="bg-b">
+    <div class="wrap">
+      <span class="eyebrow">Sobre mí</span>
+      <h2>Por qué enseño así</h2>
+      <div class="about-layout">
+        <div class="about-photo" style="border-radius:var(--radius-md); overflow:hidden; border:1px solid var(--line); position:relative;">
+          <img src="assets/joaquin-hero.jpg" alt="Joaquín tocando guitarra en su estudio" style="width:100%; height:100%; object-fit:cover; object-position:50% 18%; filter:saturate(0.86) contrast(1.05) brightness(0.98);">
+          <div style="position:absolute; inset:0; background:linear-gradient(180deg, rgba(27,20,15,0) 60%, rgba(27,20,15,0.5) 100%); pointer-events:none;"></div>
+        </div>
+        <div>
+          <p style="font-size:1.05rem;">Yo también aprendí memorizando posiciones. Sabía mover las manos, pero no entendía lo que estaba pasando debajo de lo que tocaba.</p>
+          <p style="font-size:1.05rem;">Cuando empecé a entrenar el oído en serio, todo cambió — y ahí entendí qué era lo que realmente le faltaba a la mayoría de los guitarristas, incluido yo.</p>
+          <p style="font-size:1.05rem;">Por eso hoy no enseño para que memorices más rápido. Enseño para que <strong>vos</strong> también empieces a escuchar lo que tocás, y puedas usarlo en la música que realmente te gusta — sin depender de un diagrama.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIOS ===================== -->
+  <section class="bg-a">
+    <div class="wrap-wide">
+      <span class="eyebrow">Testimonios</span>
+      <h2>Lo que dicen mis alumnos</h2>
+      <div class="testi-grid">
+
+        <div class="testi-card">
+          <div class="testi-body">
+            <span class="stars" aria-label="5 de 5 estrellas">★★★★★</span>
+            <p>"Después de mucho tiempo buscando, finalmente di con Joaquín y estoy aprendiendo música como se debe aprender."</p>
+            <span class="testi-name">— Alejandro</span>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-body">
+            <span class="stars" aria-label="5 de 5 estrellas">★★★★★</span>
+            <p>"Cada clase abre la cabeza y expande el vocabulario musical. La metodología se adapta a cada alumno."</p>
+            <span class="testi-name">— Brian Oropeza</span>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-body">
+            <span class="stars" aria-label="5 de 5 estrellas">★★★★★</span>
+            <p>"Muy buenas sus clases. Un genio que lo da todo para transmitirlo a sus alumnos."</p>
+            <span class="testi-name">— Diego</span>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-body">
+            <span class="stars" aria-label="5 de 5 estrellas">★★★★★</span>
+            <p>"Excelente profesor, con mucha paciencia. Guía clara y gran guitarrista."</p>
+            <span class="testi-name">— Francisco</span>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="testi-body">
+            <span class="stars" aria-label="5 de 5 estrellas">★★★★★</span>
+            <p>"Paciente y súper amable con niños. Se adapta a lo que sus estudiantes están buscando."</p>
+            <span class="testi-name">— Cecilia</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="bg-b">
+    <div class="wrap">
+      <span class="eyebrow">Preguntas frecuentes</span>
+      <h2>Todo lo que quizás te estés preguntando</h2>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>¿Sirve si soy principiante total y nunca toqué guitarra?</summary>
+          <p class="faq-a">Sí. El método se adapta a tu nivel — empezamos por donde estés parado hoy.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Y si soy intermedio y ya sé varias escalas y acordes?</summary>
+          <p class="faq-a">Mejor todavía. Vas a entender por primera vez por qué funciona todo lo que ya sabés tocar.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Tengo que saber leer partituras o teoría musical?</summary>
+          <p class="faq-a">No. Trabajamos de oído primero. La teoría, si aparece, siempre está al servicio de lo que estás escuchando.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Las clases son online o presenciales?</summary>
+          <p class="faq-a">Ambas modalidades están disponibles, según lo que te resulte más cómodo.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Con qué frecuencia son las clases?</summary>
+          <p class="faq-a">Lo definimos juntos según tu disponibilidad y objetivos — lo hablamos por WhatsApp.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Necesito una guitarra en particular?</summary>
+          <p class="faq-a">No. Cualquier guitarra eléctrica o acústica sirve para empezar.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Puedo elegir qué estilo aprender (blues, rock, funk, jazz)?</summary>
+          <p class="faq-a">Sí. De hecho es parte del método: trabajamos sobre la música que a vos te gusta escuchar.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuánto tiempo tarda en notarse un cambio?</summary>
+          <p class="faq-a">Depende de cada alumno, pero la mayoría empieza a notar diferencias en su forma de escuchar y tocar desde las primeras semanas.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Esto reemplaza aprender escalas y acordes?</summary>
+          <p class="faq-a">No los reemplaza — cambia el rol que cumplen. Dejan de ser un fin en sí mismos y pasan a ser herramientas al servicio de tu oído.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Hay un programa grabado que pueda comprar directamente, sin clases particulares?</summary>
+          <p class="faq-a">Todavía no, está en desarrollo. Por ahora las clases son particulares y personalizadas. Escribime para que te avise apenas esté disponible.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cómo empiezo?</summary>
+          <p class="faq-a">Escribime por WhatsApp contándome tu nivel actual y qué te gustaría lograr. A partir de ahí vemos juntos el mejor camino.</p>
+        </details>
+        <details class="faq-item">
+          <summary>¿Cuánto cuesta?</summary>
+          <p class="faq-a">Depende de la modalidad y frecuencia que elijamos. Charlémoslo por WhatsApp así te armo una propuesta a medida.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CTA FINAL ===================== -->
+  <section class="final-cta">
+    <div class="wrap">
+      <h2>No necesitás memorizar más.<br>Necesitás empezar a entender.</h2>
+      <p>No importa si sos principiante o si ya llevás años tocando. Si sentís que hay un techo invisible que no podés cruzar, no es falta de talento. Es falta de un método que conecte tu oído con tus manos.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/5491150511232?text=Hola!%20Quiero%20contarte%20qu%C3%A9%20me%20gustar%C3%ADa%20lograr%20con%20la%20guitarra"
+           class="btn btn-whatsapp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.15c-.24.68-1.4 1.3-1.93 1.38-.49.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.62-.59-2.85-1.23-4.71-4.1-4.85-4.29-.14-.19-1.16-1.54-1.16-2.94 0-1.4.73-2.08.99-2.36.26-.28.57-.35.76-.35s.38 0 .55.01c.18.01.41-.07.64.49.24.58.81 2 .88 2.14.07.14.12.31.02.5-.09.19-.14.3-.28.46-.14.16-.29.36-.42.48-.14.13-.28.28-.12.55.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.21 1.37.28.14.44.12.6-.07.16-.19.68-.79.87-1.06.18-.28.37-.23.62-.14.26.09 1.62.77 1.9.91.28.14.46.21.53.32.07.12.07.68-.17 1.36z"/></svg>
+          Escribime por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Entendé lo que tocás — Clases de guitarra individuales, online y presenciales.</p>
+  <p><a href="https://wa.me/5491150511232" target="_blank" rel="noopener">Escribime por WhatsApp</a></p>
+</footer>
+
+<script>
+  // Muestra el botón flotante de WhatsApp una vez que el usuario baja del hero.
+  (function(){
+    var floatBtn = document.getElementById('floatingCta');
+    var hero = document.querySelector('.hero');
+    if(!floatBtn || !hero) return;
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          floatBtn.classList.remove('show');
+        } else {
+          floatBtn.classList.add('show');
+        }
+      });
+    }, { threshold: 0.05 });
+    observer.observe(hero);
+  })();
+</script>
+
+</body>
+</html>
